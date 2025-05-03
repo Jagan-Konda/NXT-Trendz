@@ -42,3 +42,57 @@
     width: 100%;
   }
 }
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.popup-close {
+  align-self: flex-end;
+  border: none;
+  background-color: transparent;
+  font-size: 32px;
+  cursor: pointer;
+}
+.payment-method-label {
+  margin-bottom: 15px;
+}
+.payment-select {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+}
+
+.confirm-button {
+  background-color: #0b69ff;
+  font-family: 'Roboto';
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.disabled-confirm-button {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.order-success-container {
+  width: 100%;
+}
+
+.order-success-text {
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Roboto';
+}
+
+@media (max-width: 576px) {
+  .order-success-text {
+    font-size: 18px;
+  }
+}
