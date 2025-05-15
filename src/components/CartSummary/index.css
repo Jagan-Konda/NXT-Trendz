@@ -96,3 +96,11 @@
     font-size: 18px;
   }
 }
+
+.payment-type-label {
+  margin-right: 10px;
+  font-weight: 500;
+}
+.payment-option {
+  cursor: pointer;
+}

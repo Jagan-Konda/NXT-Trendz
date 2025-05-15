@@ -40,9 +40,10 @@
 .cart-remove-all-button {
   border: none;
   background-color: transparent;
-  color:  #0b69ff;
+  color: #0b69ff;
   font-weight: 500;
   font-family: 'Roboto';
   align-self: flex-end;
   font-size: 20px;
+  cursor: pointer;
 }

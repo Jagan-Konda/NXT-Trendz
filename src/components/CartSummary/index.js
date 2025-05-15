@@ -9,7 +9,7 @@ const CartSummary = () => {
   const [isOrderPlaced, setOrderStatus] = useState(false)
 
   const onPaymentOption = event => {
-    if (event.target.value === 'Cash on Delivery') {
+    if (event.target.id === 'cashOnDelivery') {
       setPaymentOption(true)
     } else {
       setPaymentOption(false)
@@ -66,61 +66,118 @@ const CartSummary = () => {
               >
                 {close => (
                   <div className="popup-container">
-                    <button className="popup-close" onClick={close}>
+                    <button
+                      className="popup-close"
+                      onClick={close}
+                      type="button"
+                    >
                       &times;
                     </button>
-                    <label
-                      htmlFor="paymentMethod"
-                      className="payment-method-label"
-                    >
-                      Payment Method
-                    </label>
-                    <select
-                      id="paymentMethod"
-                      onChange={onPaymentOption}
-                      className="payment-select"
-                    >
-                      <option>--Select--</option>
-                      <option disabled>Card</option>
-                      <option disabled>Net Banking</option>
-                      <option disabled>UPI</option>
-                      <option disabled>Wallet</option>
-                      <option>Cash on Delivery</option>
-                    </select>
-                    <div>
-                      <h1 className="cart-summary-heading">
-                        Order Total:{' '}
-                        <span className="cart-summary-span">
-                          Rs {totalAmount}/-
-                        </span>{' '}
-                      </h1>
-                      <p className="cart-summary-description">
-                        {itemsInCart} items in cart
-                      </p>
-                    </div>
-                    {isPaymentOptionIsCOD ? (
-                      <button
-                        onClick={onConfirmOrder}
-                        className="confirm-button"
-                      >
-                        Confirm Order
-                      </button>
-                    ) : (
-                      <button
-                        disabled
-                        onClick={onConfirmOrder}
-                        className="confirm-button disabled-confirm-button"
-                      >
-                        Confirm Order
-                      </button>
-                    )}
-
-                    {isOrderPlaced && (
+                    {isOrderPlaced ? (
                       <div className="order-success-container">
                         <p className="order-success-text">
                           Your order has been placed successfully
                         </p>
                       </div>
+                    ) : (
+                      <>
+                        <label
+                          htmlFor="paymentMethod"
+                          className="payment-method-label"
+                        >
+                          Payment Method
+                        </label>
+                        <div>
+                          <input
+                            id="card"
+                            type="radio"
+                            name="payment"
+                            disabled
+                            className="payment-option"
+                          />
+                          <label htmlFor="card" className="payment-type-label">
+                            Card
+                          </label>
+                          <input
+                            id="netBanking"
+                            type="radio"
+                            name="payment"
+                            disabled
+                            className="payment-option"
+                          />
+                          <label
+                            htmlFor="netBanking"
+                            className="payment-type-label"
+                          >
+                            Net Banking
+                          </label>
+                          <input
+                            id="upi"
+                            type="radio"
+                            name="payment"
+                            disabled
+                            className="payment-option"
+                          />
+                          <label htmlFor="upi" className="payment-type-label">
+                            UPI
+                          </label>
+                          <input
+                            id="wallet"
+                            type="radio"
+                            name="payment"
+                            disabled
+                            className="payment-option"
+                          />
+                          <label
+                            htmlFor="wallet"
+                            className="payment-type-label"
+                          >
+                            Wallet
+                          </label>
+                          <input
+                            id="cashOnDelivery"
+                            type="radio"
+                            name="payment"
+                            onChange={onPaymentOption}
+                            className="payment-option"
+                          />
+                          <label
+                            htmlFor="cashOnDelivery"
+                            className="payment-type-label"
+                          >
+                            Cash On Delivery
+                          </label>
+                        </div>
+                        <div>
+                          <h1 className="cart-summary-heading">
+                            Order Total:{' '}
+                            <span className="cart-summary-span">
+                              Rs {totalAmount}/-
+                            </span>{' '}
+                          </h1>
+                          <p className="cart-summary-description">
+                            {itemsInCart} items in cart
+                          </p>
+                        </div>
+                        {isPaymentOptionIsCOD ? (
+                          <button
+                            onClick={onConfirmOrder}
+                            className="confirm-button"
+                            type="button"
+                          >
+                            Confirm Order
+                          </button>
+                        ) : (
+                          <button
+                            disabled
+                            onClick={onConfirmOrder}
+                            className="confirm-button disabled-confirm-button"
+                            type="button"
+                          >
+                            Confirm Order
+                          </button>
+                        )}
+                      </>
                     )}
                   </div>
                 )}
