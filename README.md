@@ -1,5 +1,10 @@
 In this project, let's build a **Nxt Trendz - Cart Features** by applying the concepts we have learned till now.
 
+### 🌐 Deployment Link  
+🔗 **Live Demo:** [Click here to view the project](https://nxttrendz459.ccbp.tech)
+
+---
+
 ### Refer to the video below:
 
 <br/>
